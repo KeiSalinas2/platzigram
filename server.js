@@ -12,15 +12,15 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
-	res.render('index');
+	res.render('index', {title: 'Platzigram'} );
 })
 
 app.get('/signup', (req, res) => {
-	res.render('index');
+	res.render('index', {title: 'Platzigram - Signup'} );
 })
 
 app.get('/signin', (req, res) => {
-	res.render('index');
+	res.render('index', {title: 'Platzigram - Signin'} );
 })
 
 app.listen(3000, (err) => {
