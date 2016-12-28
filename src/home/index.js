@@ -7,5 +7,27 @@ var title = require('title');
 page('/', function (ctx, next) {
   title('Platzigram');
   var main = document.getElementById('main-container');
-  empty(main).appendChild(template);
+
+  var pictures= [
+    {
+      user: {
+        username: 'keisalinas',
+        avatar: 'https://gemintherough.files.wordpress.com/2015/08/mr-robot_fsociety.jpg'
+      },
+      url: 'http://materializecss.com/images/office.jpg',
+      likes: '1024',
+      liked: true,
+    },
+    {
+      user: {
+        username: 'keisalinas',
+        avatar: 'https://gemintherough.files.wordpress.com/2015/08/mr-robot_fsociety.jpg'
+      },
+      url: 'http://materializecss.com/images/office.jpg',
+      likes: '1024',
+      liked: true,
+    }
+  ];
+
+  empty(main).appendChild(template(pictures));
 })
