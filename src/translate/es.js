@@ -11,9 +11,9 @@ module.exports = {
   'fullname': 'Nombre completo',
   'password': 'Contraseña',
   'signup.call-to-action': 'Regístrate',
-  'signup.have_account': '¿Tienes una cuenta?',
+  'signup.have-account': '¿Tienes una cuenta?',
   'signin': 'Entrar',
-  'signup.not-have-account': '¿No tenes cuenta?',
+  'signin.not-have-account': '¿No tenes cuenta?',
   'language': 'Idioma',
   'upload-picture': 'Subir foto',
   'upload': 'Subir'

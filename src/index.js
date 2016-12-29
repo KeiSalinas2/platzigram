@@ -8,5 +8,6 @@ moment.locale('es');
 require('./home');
 require('./signup');
 require('./signin');
+require('./footer');
 
 page();
