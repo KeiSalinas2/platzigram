@@ -26,7 +26,7 @@ page('/', function (ctx, next) {
         avatar: 'https://gemintherough.files.wordpress.com/2015/08/mr-robot_fsociety.jpg'
       },
       url: 'http://materializecss.com/images/office.jpg',
-      likes: 24,
+      likes: 1,
       liked: true,
       createdAt: new Date().setDate(new Date().getDate() - 10)
     }
