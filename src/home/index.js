@@ -7,7 +7,7 @@ var header = require('../header');
 var axios = require('axios');
 var axios = require('fetch');
 
-page('/', header, loadPicturesFetch, function (ctx, next) {
+page('/', header, asyncLoadPictures, function (ctx, next) {
   title('Platzigram');
   var main = document.getElementById('main-container');
 
@@ -55,3 +55,14 @@ function loadPicturesFetch(ctx, next) {
     })
 }
 
+
+
+
+async function asyncLoadPictures(ctx, next) {
+  try {
+    ctx.pictures = await fetch('/api/pictures').then(res => res.json());
+    next();
+  } catch (err) {
+      return console.log(err);
+  }
+}
