@@ -1,7 +1,6 @@
 var yo = require('yo-yo');
 var layout = require('../layout');
-var picture = require('../picture-card')
-
+var picture = require('../picture-card');
 
 module.exports = function(pictures) {
 

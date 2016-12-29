@@ -19,6 +19,36 @@ app.get('/signup', (req, res) => {
 	res.render('index', {title: 'Platzigram - Signup'} );
 })
 
+app.get('/api/pictures', (req, res) => {
+  var pictures= [
+    {
+      user: {
+        username: 'keisalinas',
+        avatar: 'https://gemintherough.files.wordpress.com/2015/08/mr-robot_fsociety.jpg'
+      },
+      url: 'http://materializecss.com/images/office.jpg',
+      likes: 1024,
+      liked: false,
+      createdAt: new Date().getTime()
+    },
+    {
+      user: {
+        username: 'keisalinas',
+        avatar: 'https://gemintherough.files.wordpress.com/2015/08/mr-robot_fsociety.jpg'
+      },
+      url: 'http://materializecss.com/images/office.jpg',
+      likes: 1,
+      liked: true,
+      createdAt: new Date().setDate(new Date().getDate() - 10)
+    }
+  ];
+
+  setTimeout(function (){
+    res.send(pictures);
+  }, 2000)
+
+})
+
 app.get('/signin', (req, res) => {
 	res.render('index', {title: 'Platzigram - Signin'} );
 })
