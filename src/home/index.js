@@ -4,6 +4,7 @@ var template = require('./template');
 var title = require('title');
 
 
+
 page('/', function (ctx, next) {
   title('Platzigram');
   var main = document.getElementById('main-container');
@@ -17,6 +18,7 @@ page('/', function (ctx, next) {
       url: 'http://materializecss.com/images/office.jpg',
       likes: 1024,
       liked: false,
+      createdAt: new Date()
     },
     {
       user: {
@@ -26,6 +28,7 @@ page('/', function (ctx, next) {
       url: 'http://materializecss.com/images/office.jpg',
       likes: 24,
       liked: true,
+      createdAt: new Date().setDate(new Date().getDate() - 10)
     }
   ];
 
