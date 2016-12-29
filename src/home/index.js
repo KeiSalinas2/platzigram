@@ -15,8 +15,8 @@ page('/', function (ctx, next) {
         avatar: 'https://gemintherough.files.wordpress.com/2015/08/mr-robot_fsociety.jpg'
       },
       url: 'http://materializecss.com/images/office.jpg',
-      likes: '1024',
-      liked: true,
+      likes: 1024,
+      liked: false,
     },
     {
       user: {
@@ -24,7 +24,7 @@ page('/', function (ctx, next) {
         avatar: 'https://gemintherough.files.wordpress.com/2015/08/mr-robot_fsociety.jpg'
       },
       url: 'http://materializecss.com/images/office.jpg',
-      likes: '1024',
+      likes: 24,
       liked: true,
     }
   ];
