@@ -3,6 +3,19 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express ();
+const multer = require('multer');
+const ext = require('file-extension');
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, './uploads')
+  },
+  filename: function (req, file, cb) {
+    cb(null, +Date.now() + '.' + ext(file.originalname))
+  }
+})
+
+let upload = multer({ storage: storage }).single('picture');
 
 app.set('view engine', 'pug')
 
@@ -47,6 +60,16 @@ app.get('/api/pictures', (req, res) => {
     res.send(pictures);
   }, 2000)
 
+})
+
+app.post('/api/pictures', function (req, res) {
+
+  upload(req, res, function (err) {
+    if (err) {
+      return res.status(500).send('Error uploading file');
+    }
+    res.send("File uploaded");
+  })
 })
 
 app.get('/signin', (req, res) => {

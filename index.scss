@@ -73,38 +73,62 @@ body{
   float: left;
   margin-right: 10px;
 }
-.card .username{
-  color: $secondary-color;
-}
-.card small.time{
-  line-height: 48px;
-}
-
-.card p{
-  padding: 20px 0;
-}
-
-.card .likes{
-  line-height: 30px;
-  margin-left: 10px;
-}
-
-.card i{
-  font-size: 30px;
-}
-.card .fa-heart-o{
-  color: $secondary-color
-}
-.card .fa-heart{
-  color: #f44336;
-  display: none;
-}
-
-.card.liked{
-  .fa-heart{
-    display: block;
+.card{
+  .username{
+    color: $secondary-color;
+  }
+  small.time{
+    line-height: 48px;
+  }
+  p{
+    padding: 20px 0;
+  }
+  .likes{
+    line-height: 30px;
+    margin-left: 10px;
+  }
+  i{
+    font-size: 30px;
   }
   .fa-heart-o{
+    color: $secondary-color
+  }
+  .fa-heart{
+    color: #f44336;
     display: none;
+  }
+  .liked{
+    .fa-heart{
+      display: block;
+    }
+    .fa-heart-o{
+      display: none;
+    }
+  }
+}
+
+.form-upload {
+
+  span, button {
+    color: white;
+  }
+
+  .fileUpload {
+    position: relative;
+    overflow: hidden;
+    margin: 10px;
+
+    input {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      margin: 0;
+      padding: 0;
+      font-size: 20px;
+      cursor: pointer;
+      opacity: 0;
+      filter: alpha(opacity=0);
+    }
   }
 }
