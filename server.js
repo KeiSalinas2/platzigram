@@ -56,9 +56,7 @@ app.get('/api/pictures', (req, res) => {
     }
   ];
 
-  setTimeout(function (){
-    res.send(pictures);
-  }, 2000)
+  res.send(pictures);
 
 })
 
@@ -74,6 +72,45 @@ app.post('/api/pictures', function (req, res) {
 
 app.get('/signin', (req, res) => {
 	res.render('index', {title: 'Platzigram - Signin'} );
+})
+
+app.get('/api/user/:username', (req, res) => {
+  const user= {
+    username: 'keisalinas',
+    avatar: 'https://gemintherough.files.wordpress.com/2015/08/mr-robot_fsociety.jpg',
+    pictures: [
+      {
+        id: 1,
+        src: 'https://gemintherough.files.wordpress.com/2015/08/mr-robot_fsociety.jpg',
+        likes: 3
+      },
+      {
+        id: 2,
+        src: 'https://gemintherough.files.wordpress.com/2015/08/mr-robot_fsociety.jpg',
+        likes: 300
+      },
+      {
+        id: 3,
+        src: 'https://gemintherough.files.wordpress.com/2015/08/mr-robot_fsociety.jpg',
+        likes: 0
+      },
+      {
+        id: 4,
+        src: 'https://gemintherough.files.wordpress.com/2015/08/mr-robot_fsociety.jpg',
+        likes: 24
+      },
+      {
+        id: 5,
+        src: 'https://gemintherough.files.wordpress.com/2015/08/mr-robot_fsociety.jpg',
+        likes: 10
+      }
+    ]
+  }
+  res.send(user);
+})
+
+app.get('/:username', (req, res) => {
+  res.render('index', {title: 'Platzigram - ${req.params.username}'} );
 })
 
 app.listen(3000, (err) => {

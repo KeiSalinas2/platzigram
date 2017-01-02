@@ -10,6 +10,7 @@ moment.locale('es');
 require('./home');
 require('./signup');
 require('./signin');
+require('./user-page');
 require('./footer');
 
 page();
