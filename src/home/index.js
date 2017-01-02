@@ -7,7 +7,7 @@ var header = require('../header');
 var axios = require('axios');
 var axios = require('fetch');
 
-page('/', header, asyncLoadPictures, function (ctx, next) {
+page('/', header, loading, asyncLoadPictures, function (ctx, next) {
   title('Platzigram');
   var main = document.getElementById('main-container');
 
@@ -55,9 +55,6 @@ function loadPicturesFetch(ctx, next) {
     })
 }
 
-
-
-
 async function asyncLoadPictures(ctx, next) {
   try {
     ctx.pictures = await fetch('/api/pictures').then(res => res.json());
@@ -65,4 +62,11 @@ async function asyncLoadPictures(ctx, next) {
   } catch (err) {
       return console.log(err);
   }
+}
+
+function loading(ctx, next) {
+  var el = document.createElement('div');
+  el.classList.add('loader');
+  document.getElementById('main-container').appendChild(el);
+  next();
 }

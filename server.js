@@ -56,7 +56,7 @@ app.get('/api/pictures', (req, res) => {
     }
   ];
 
-  res.send(pictures);
+  setTimeout( () => res.send(pictures))
 
 })
 
