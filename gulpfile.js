@@ -5,19 +5,21 @@ var babel = require('babelify');
 var browserify = require('browserify');
 var source = require('vinyl-source-stream');
 var watchify = require('watchify');
+var minifyCss = require('gulp-clean-css');
 
 gulp.task('styles', function () {
   gulp
-    .src('index.scss')
+    .src('app.scss')
     .pipe(sass())
-    .pipe(rename('app.css'))
-    .pipe(gulp.dest('public'));
+    .pipe(rename('app.min.css'))
+    .pipe(minifyCss())
+    .pipe(gulp.dest('public/assets/css/'));
 })
 
 gulp.task('assets', function () {
   gulp
-    .src('assets/*')
-    .pipe(gulp.dest('public'));
+    .src('assets/img/*')
+    .pipe(gulp.dest('public/assets/img/'));
 })
 
 function compile(watch) {
@@ -37,8 +39,8 @@ function compile(watch) {
       .bundle()
       .on('error', function(error) { console.log(error); this.emit('end'); })
       .pipe(source('index.js'))
-      .pipe(rename('app.js'))
-      .pipe(gulp.dest('public'));
+      .pipe(rename('app.min.js'))
+      .pipe(gulp.dest('public/js/'));
   }
 
   rebundle();
