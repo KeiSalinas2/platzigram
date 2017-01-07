@@ -4,10 +4,21 @@ import title from 'title'
 import empty from 'empty-element'
 import template from './template'
 
-page('/:username', header, loadUser, (ctx, next) => {
-  var main = document.getElementById('main-container')
-  title(`Platzigram - ${ctx.params.username}`)
+var main = document.getElementById('main-container')
+
+page('/:username', loadUser, header, (ctx, next) => {
+  title(`Platzigram - ${ctx.user.username}`)
   empty(main).appendChild(template(ctx.user))
+})
+
+page('/:username/:id', loadUser, header, (ctx, next) => {
+  title(`Platzigram - ${ctx.user.username}`)
+  empty(main).appendChild(template(ctx.user))
+  $('.modal').modal({
+    complete: () => {
+      page(`/${ctx.params.username}`)
+    }
+  })
 })
 
 async function loadUser(ctx, next) {

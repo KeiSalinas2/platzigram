@@ -197,3 +197,15 @@ body{
     }
   }
 }
+
+.modal {
+  img {
+    max-height: 100%;
+    max-width: 90%;
+  }
+
+  .fa-heart {
+    display: inline-block;
+  }
+
+}
