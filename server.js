@@ -3,6 +3,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express ();
+const compression = require('compression');
 const multer = require('multer');
 const ext = require('file-extension');
 
@@ -15,7 +16,10 @@ const storage = multer.diskStorage({
   }
 })
 
+
 let upload = multer({ storage: storage }).single('picture');
+
+app.use(compression());
 
 app.set('view engine', 'pug')
 
