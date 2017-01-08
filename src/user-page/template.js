@@ -31,7 +31,6 @@ export default (user) => {
               </div>
               <div class="modal-footer">
                 <div class="btn btn-flat likes">
-                  <p>Aqui estoy</p>
                   <i class="fa fa-heart"></i> ${translate.message('likes', { likes: picture.likes} )}
                 </div>
               </div>
