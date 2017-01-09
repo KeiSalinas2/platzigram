@@ -22,7 +22,6 @@ gulp.task('styles', function () {
     .pipe(rename('app.min.css'))
     .pipe(minifyCss())
     .pipe(gulp.dest('public/assets/css/'))
-    .pipe(browserSync.reload({ stream: true }));
 })
 
 gulp.task('assets', function () {
